@@ -54,7 +54,7 @@ namespace Solarizr
             // long-running startup tasks go here
             await Task.Delay(1000);
 
-            NavigationService.Navigate(typeof(Views.MainPage));
+            NavigationService.Navigate(typeof(Views.DashboardPage));
             await Task.CompletedTask;
         }
     }

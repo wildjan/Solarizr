@@ -1,0 +1,92 @@
+﻿<Page
+    x:Class="Solarizr.Views.DashboardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Behaviors="using:Template10.Behaviors"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:controls="using:Template10.Controls"
+    xmlns:local="using:Solarizr.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--  page header -->
+        <controls:PageHeader BackButtonVisibility="Collapsed" Content="Main Page piča" />
+
+        <Grid Background="White" Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="500" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ScrollViewer>
+                    <StackPanel Background="White" x:Name="Column0">
+                        <TextBlock
+                            Text="Wednesday, August 5 2016"
+                            Style="{StaticResource SubtitleTextBlockStyle}" Margin="24,24,0,0"/>
+                        <StackPanel Margin="24,0,24,0" x:Name="Upcomming" Background="White">
+                            <TextBlock
+                                Text="U have 3 appointments remaining today"
+                                Style="{StaticResource BodyTextBlockStyle}"
+                                Margin="0,12,0,0"
+                                TextWrapping="WrapWholeWords"
+                                x:Name="NextAppointmentText"/>
+                            <HyperlinkButton>
+                                <TextBlock
+                                    Text="Your next appointment is in 23 minutes in Englewood CO"
+                                    Style="{StaticResource BodyTextBlockStyle}"
+                                    Margin="0,12,0,0"
+                                    TextWrapping="WrapWholeWords"/>
+                            </HyperlinkButton>
+                        </StackPanel >
+                        <StackPanel  Margin="24,24,24,24" x:Name="Map" Background="AliceBlue"
+                                     MinWidth="100"
+                                     MinHeight="200">
+                            <TextBlock
+                                    Text="MAP"
+                                    FontSize="64"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    TextWrapping="WrapWholeWords"/>
+                        </StackPanel>
+                        <TextBlock Text="Weather" Style="{StaticResource SubtitleTextBlockStyle}"
+                                   Margin="24,24,0,0"/>
+                        <RelativePanel Margin="24,0,24,0" x:Name="Weather">
+                            <TextBlock x:Name="TopWeather"
+                                       Text="Englewood CO"
+                                       Style="{StaticResource BodyTextBlockStyle}"
+                                       Grid.ColumnSpan="5"
+                                       Padding="0"
+                                       Margin="0,12,0,0"/>
+                            <GridView RelativePanel.Below="TopWeather" MinWidth="200">
+                                <SymbolIcon Symbol="Emoji2"
+                                            Margin="0,12,0,0"/>
+                                <TextBlock Text="27°C"
+
+                                           Margin="0,12,0,0"/>
+                                <TextBlock
+
+                                    Text="Precipitation 87 %"
+                                    FontSize="10"
+                                	TextWrapping="Wrap"
+                                	Margin="0,12,0,0" Width="47" >
+                                </TextBlock>
+                            </GridView>
+                        </RelativePanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
